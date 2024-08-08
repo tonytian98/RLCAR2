@@ -60,14 +60,14 @@ class DeepQLearning(LightningModule):
         env: RLEnv,  # game environment with an epsilon greedy policy
         capacity: int = 5000,  # capacity of the replay buffer
         batch_size: int = 256,  # batch size for training
-        hidden_sizes: list[int] = [64],  # hidden sizes for the neural network
+        hidden_sizes: list[int] = [128],  # hidden sizes for the neural network
         lr: float = 1e-3,  # learning rate for optimizer
         loss_fn=F.smooth_l1_loss,  # loss function
         optimizer=AdamW,  # optimizer that updates the model parameters
         gamma: float = 0.99,  # discount factor for accumulating rewards
         eps_start: float = 1.0,  # starting epsilon for epsilon greedy policy
-        eps_end: float = 0.1,  # ending epsilon for epsilon greedy policy
-        eps_last_episode: int = 150,  # number of episodes used to decay epsilon to eps_end
+        eps_end: float = 0.05,  # ending epsilon for epsilon greedy policy
+        eps_last_episode: int = 200,  # number of episodes used to decay epsilon to eps_end
         samples_per_epoch: int = 2500,  # number of samples needed per training episode
         sync_rate: int = 10,  # number of epochs before we update the policy network using the target network
     ):
@@ -254,7 +254,7 @@ if __name__ == "__main__":
     width = 800
     height = 600
 
-    logger = CSVLogger(save_dir="logs/", name="my_model")
+    logger = CSVLogger(save_dir="logs/", name="DQL_model")
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     num_gpus = torch.cuda.device_count()
     print(device, "number of GPUs", num_gpus)

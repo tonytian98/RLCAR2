@@ -5,7 +5,7 @@ import copy
 from collections import deque
 import random
 from RLEnv import RLEnv, ActionSpace
-from DQN import DQN
+from DuelingDQN import DuelingDQN as DQN
 import os
 import torch
 import torch.nn.functional as F
