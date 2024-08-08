@@ -1,0 +1,13 @@
+shapely
+opencv-python
+torch
+torchvision
+torchaudio
+geopandas
+pynput
+matplotlib
+pytorch-lightning
+optuna
+optuna-integration
+tensorboardX
+tensorboard

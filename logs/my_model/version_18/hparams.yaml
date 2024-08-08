@@ -1,0 +1,398 @@
+batch_size: 256
+capacity: 2000
+env: !!python/object:RLEnv.RLEnv
+  ACCELERATE_REWARD: 0.5
+  AVG_ANGLE_DIFFERENCE: 0
+  AVG_CAR_SPEED: 2.5
+  AVG_DISTANCE_TO_NEXT_SEGMENT: !!python/object/apply:numpy.core.multiarray.scalar
+  - &id001 !!python/object/apply:numpy.dtype
+    args:
+    - f8
+    - false
+    - true
+    state: !!python/tuple
+    - 3
+    - <
+    - null
+    - null
+    - null
+    - -1
+    - -1
+    - 0
+  - !!binary |
+    ZPvX2FvtaEA=
+  AVG_RAY_LENGTH: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    SiHZXLpZXEA=
+  CRASH_REWARD: -5
+  GOAL_REWARD: 5
+  LIFE_REWARD: 0
+  MAXIMUM_STEPS: 1500
+  STD_ANGLE_DIFFERENCE: 180
+  STD_CAR_SPEED: 1
+  STD_DISTANCE_TO_NEXT_SEGMENT: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    JPD0vHNVSkA=
+  STD_RAY_LENGTH: !!python/object/apply:numpy.core.multiarray.scalar
+  - *id001
+  - !!binary |
+    HLCehTtAV0A=
+  TURN_REWARD: -0.5
+  USELESS_ACTION_REWARD: -0.05
+  WRONG_DIRECTION_REWARD: -0.05
+  action_record: !!python/object:Record.Record
+    current_value: null
+    dir_name: ./records/actions_records__2024_08_07_08_37_24
+    name: actions
+    record: []
+    replay_records: []
+    separator: ;
+    set_time_in_file_name: true
+    start_time: ''
+  action_space: !!python/object:ActionSpace.ActionSpace
+    actions:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    descriptive_actions:
+    - hold
+    - accelerate
+    - decelerate
+    - steer_left
+    - steer_right
+    n: 5
+  auto_config_car_start: true
+  background: !!python/object/apply:shapely.io.from_wkb
+  - !!binary |
+    AQMAAAABAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwIJAAAAAAAAAiUAAAAAA
+    AMCCQAAAAAAAAIlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  car: !!python/object:Car.Car
+    acceleration: 0.1
+    car_angle: 197.01828425567416
+    car_speed: 0
+    car_x: 657.75
+    car_y: 141.0
+    max_backward_speed: 0
+    max_forward_speed: 5
+    turn_angle: 5
+  current_segmented_track_index: 0
+  current_step: 0
+  height: 600
+  image_path: map1.png
+  inverse_track: !!python/object/apply:shapely.io.from_wkb
+  - !!binary |
+    AQYAAAACAAAAAQMAAAACAAAABQAAAAAAAAAAAAAAAAAAAADAgkAAAAAAAACJQAAAAAAAwIJAAAAA
+    AAAAiUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwIJAFQAAAAAAAAAAuIVA
+    AAAAAADAV0AAAAAAAIiGQAAAAAAAQGxAAAAAAACIhkAAAAAAABB5QAAAAAAAGIZAAAAAAABwfEAA
+    AAAAABiEQAAAAAAAwIBAAAAAAABogEAAAAAAAPCAQAAAAAAAgH1AAAAAAABIgEAAAAAAAGB7QAAA
+    AAAAUHhAAAAAAADgeUAAAAAAAOB1QAAAAAAAUHdAAAAAAACQeUAAAAAAANB0QAAAAAAAsH9AAAAA
+    AABAaEAAAAAAANB/QAAAAAAAwF5AAAAAAAAwfkAAAAAAAIBZQAAAAAAAsHxAAAAAAAAAW0AAAAAA
+    AJBwQAAAAAAAIGRAAAAAAAAAW0AAAAAAAABnQAAAAAAAQFVAAAAAAACQekAAAAAAAABHQAAAAAAA
+    iIFAAAAAAAAARkAAAAAAABiEQAAAAAAAAE5AAAAAAAC4hUAAAAAAAMBXQAEDAAAAAQAAABUAAAAA
+    AAAAAOiDQAAAAAAAYGVAAAAAAACQc0AAAAAAAOBhQAAAAAAAoHFAAAAAAAAAZEAAAAAAAMBuQAAA
+    AAAAAGRAAAAAAABAa0AAAAAAAEBnQAAAAAAAoGVAAAAAAABQc0AAAAAAAOBjQAAAAAAA0HdAAAAA
+    AACgZ0AAAAAAAKB5QAAAAAAAAG5AAAAAAADgekAAAAAAACBxQAAAAAAA8HpAAAAAAABAckAAAAAA
+    AMB5QAAAAAAAkHNAAAAAAAAAdUAAAAAAAOB2QAAAAAAAUHBAAAAAAADAe0AAAAAAAKBvQAAAAAAA
+    oH5AAAAAAACgckAAAAAAAFiAQAAAAAAAUHtAAAAAAAAwgkAAAAAAAMB8QAAAAAAAEIRAAAAAAABg
+    eEAAAAAAAKCEQAAAAAAA0HVAAAAAAACAhEAAAAAAAMBtQAAAAAAA6INAAAAAAABgZUA=
+  number_of_rays: 5
+  rays:
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACOhEAAAAAAAKBhQHxbjzRA8oJAfbqDtgwLZUA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACOhEAAAAAAAKBhQPUtHUyBFIRAiub5dMHTZ0A=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACOhEAAAAAAAKBhQKzBmceLG4NAsCpK2dnrSkA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACOhEAAAAAAAKBhQO6mIzFNHoVAFzRxkmSEVEA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACOhEAAAAAAAKBhQAHx+YyHY3dAgZ2uO9QbS0A=
+  records:
+    reward: []
+  reward_lines:
+  - &id002 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAADohEAAAAAAAGBTQAAAAAAANIRAAAAAAACQaUA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAADQgkAAAAAAAABKQAAAAAAAsH1AAAAAAACgY0A=
+  - &id003 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAQAAAAAIc0AAAAAAAGBQQAAAAAAAmHJAAAAAAADwYkA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACQZUAAAAAAACBYQAAAAAAAAG1AAAAAAACgZUA=
+  - &id004 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAADQYEAAAAAAAFBnQAAAAAAAcGhAAAAAAADwbkA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAABAWkAAAAAAAKB2QAAAAAAAwGRAAAAAAACQdUA=
+  - &id005 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAAAgXEAAAAAAAHB9QAAAAAAAwGVAAAAAAAC4eEA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAADQY0AAAAAAAAB/QAAAAAAA0GpAAAAAAABAekA=
+  - &id006 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAAB4cEABAAAAAMB/QAAAAAAAEHBAAAAAAADoekA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAAAQdkAAAAAAAKB8QAAAAAAAsHFAAQAAAABYekA=
+  - &id007 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAACYeEAAAAAAALh3QAAAAAAA6HJAAAAAAABgd0A=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAQAAAACgekAAAAAAABh3QAEAAAAAqH9AAAAAAAD4dkA=
+  - &id008 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAABwfEAAAAAAAHB8QAAAAAAARIFAAAAAAAAIfEA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAABAgkAAAAAAANiAQAAAAAAAIINAAAAAAACQekA=
+  - &id009 !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAQAAAAAYhUD///////d+QAAAAAAAWIRAAAAAAAAYd0A=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQIAAAACAAAAAAAAAABQhkAAAAAAAMB6QAAAAAAAkIRAAAAAAABYckA=
+  reward_lines_in_order:
+  - *id002
+  - *id003
+  - *id004
+  - *id005
+  - *id006
+  - *id007
+  - *id008
+  - *id009
+  save_processed_track: true
+  segmented_track_in_order:
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAAEgAAAAAAAAAAkHpAAAAAAAAAR0CjOqRkcC9zQDJ2TZN4RlBAUSG5NLwvc0DIevCN
+      nk1QQBJKD4f+L3NAJtYjakldUECaTiA/3i9zQLsHyfb6bFBA/aZ14AHCckAcUeps7cFiQAAAAAAA
+      kHNAAAAAAADgYUAAAAAAAOiDQAAAAAAAYGVAZNG7p38nhEDpsWZLqt9oQDXTPoJO1IRA+fpQlBZE
+      U0BEduZUvtSEQD1ZHsTHNFNApPxBoV3VhEAZWueB4yVTQGixlN4q1oRAeod9hI4XU0CSJ94SJNeE
+      QI6zeiHsCVNAFDEBVWzXhEB/ufJ6vQZTQAAAAAAAGIRAAAAAAAAATkAAAAAAAIiBQAAAAAAAAEZA
+      AAAAAACQekAAAAAAAABHQA==
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAAFQAAAAAAAAAAQGtAAAAAAABAZ0AAAAAAAMBuQAAAAAAAAGRAAAAAAACgcUAAAAAA
+      AABkQOFUZAPwdHJAO+1woXQWY0DJGxdJT3NyQFz1GxbdD2NAVQUyv+xxckAcI4SDhAhjQOVwXxTo
+      cHJA91Oufu8AY0Cw3kbLQ3ByQJzCB7kw+WJA77XweAFwckDtFO5KW/FiQGex38AhcHJAI3ybhILp
+      YkAB/7MAVd9yQP9bmhFTelBAAAAAAAAAZ0AAAAAAAEBVQAAAAAAAIGRAAAAAAAAAW0C6bOagj+lg
+      QKNwOAtIBGdAVFpQW53uYECfAXryFgZnQLQIhjS29WBAJj6kQHIJZ0AGNBAUcvxgQGxbmYB7DWdA
+      y5bcX8ACYUBGS/S+KBJnQBY+AIyRCGFA6sH/c24XZ0Cw/Lb4TY5oQISAtuAqnW5AAAAAAABAa0AA
+      AAAAAEBnQA==
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAADwAAAAAAAAAA4GNAAAAAAADQd0AAAAAAAKBlQAAAAAAAUHNAaGOEv4tUaEAHrB6O
+      CjtvQKylr6RiUWhAYf6FDek5b0BM93nLSUpoQNrBW7+NNm9A+svv641DaECUpGZ/hDJvQDVpI6A/
+      PWhAurQLQdctb0Dqwf9zbjdoQBY+AIyRKG9AiuVNRHKzYEC2YU5claRnQAAAAAAAAFtAAAAAAACQ
+      cEAAAAAAAIBZQAAAAAAAsHxAbgdAnCC1W0BESxIId1F9QP+fy0f5gWVADzHi1ryeeEB53Kdsg4Zl
+      QMPdDP02nHhAAAAAAADgY0AAAAAAANB3QA==
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAADQAAAAAAAAAAAG5AAAAAAADgekAAAAAAAKBnQAAAAAAAoHlACAygGLr5ZUDzJxq/
+      5tN4QAHAaHANnFxA8c4dKUOJfUCrn6/yjJFcQFd4ejYujH1ApI6p4UGJXEAKu8LSEo59QAAAAAAA
+      wF5AAAAAAAAwfkAAAAAAAEBoQAAAAAAA0H9ACpbhbuhPcECcXV6tk8B/QCstYadH0G9AI5941Vfr
+      ekB40x4nAtBvQOEcaIdr53pAwtEOjxXQb0AHdPwj0+Z6QAAAAAAAAG5AAAAAAADgekA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAADQAAAAAAAAAAQHJAAAAAAADAeUAAAAAAACBxQAAAAAAA8HpAOXoxXT04cEA+KTb7
+      Lul6QGtpTyzcn3BA3mCHKqi8f0AUn5qx9J9wQLq3FdNsv39AAAAAAADQdEAAAAAAALB/QAAAAAAA
+      UHdAAAAAAACQeUDWUVluRn14QB0HQS913ndAgWvpOZblckCigRhZ7Yd3QOj1alWv4XJAefy3k3+H
+      d0BQba8C2N1yQB7ZDm2whndA71pCOVrdckBwGN+2iIZ3QAAAAAAAQHJAAAAAAADAeUA=
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAAFAAAAAAAAAAAWIBAAAAAAABQe0AAAAAAAKB+QAAAAAAAoHJAAAAAAADAe0AAAAAA
+      AKBvQAAAAAAA4HZAAAAAAABQcEAAAAAAAJBzQAAAAAAAAHVA52wvE+TyckBn1/LSlTh3QH+UFsZp
+      mnhAXn7nphKQd0AYCpWqUJ54QIcDSGyAkHdAsJJQ/SeieEDiJvGST5F3QFU2+0XmpXhANw8sHH6S
+      d0BCfgJKgql4QCLcFx4JlHdAWjBQI/OseEBfjdjK7JV3QDYEh6DMrnhAh6KI8zCXd0AAAAAAAOB5
+      QAAAAAAA4HVAAAAAAABge0AAAAAAAFB4QFkdTQAHZnxAPL2FW0hJfEA+Ih2ncGl8QP1+3aSKSHxA
+      hrFn2FZtfEDeZhOuFkh8QPiDD0MXGIFAxgvlCMTle0AAAAAAAFiAQAAAAAAAUHtA
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAAHgAAAAAAAAAAEIRAAAAAAABgeEAAAAAAADCCQAAAAAAAwHxAHPXSoJxWgUCpbH3L
+      ghZ8QDrJofs5VoFAMF7Ar3cYfEA25QHpVFWBQDknVxT2G3xAaTWJG0VUgUB8CXBCQx98QPVFUzEN
+      U4FAbLpRFlcifEAlZGArsFGBQD3DqPkpJXxAQ7UtZjFQgUAcJzz2tCd8QDK/a5GUToFAjVAXx/Ep
+      fEAe0eem3UyBQAP1/ufaK3xAU7S+4BBLgUBW0wqjay18QKXP8K4ySYFAGsVCHKAufEDhbnGsR0eB
+      QAOBIlt1L3xAPSfMk1RFgUAimexR6S98QHBa+s0menxA7zEIemmXfEAAAAAAAIB9QAAAAAAASIBA
+      AAAAAABogEAAAAAAAPCAQAAAAAAAGIRAAAAAAADAgEDhVunWnAuFQBZcAQBbF39AUKdD2C8LhUBx
+      Dp6QthZ/QGXaek6+CYVAKzqArg0Uf0BY9rjqbwiFQDLxhaIfEX9AGTFn5UcHhUBKXN2l8w1/QGJR
+      VhhJBoVAxgRqipEKf0ByYbf3dQWFQGZVfacBB39AhO0OjNAEhUC0JUbFTAN/QFO4MW1aBIVA7AIq
+      B3z/fkBF+bcGzUmEQOOsK1OvWHdAAAAAAAAQhEAAAAAAAGB4QA==
+  - !!python/object/apply:shapely.io.from_wkb
+    - !!binary |
+      AQMAAAABAAAAIQAAAAAAAAAAgIRAAAAAAADAbUAAAAAAAKCEQAAAAAAA0HVAwXw7DwlghEB0OX/z
+      ZPN2QOdFPCySYYRAhsOzqOD0dkAlw/0GP2OEQKFYykXs9nZAsVi8J9BkhECO8WFvSfl2QJwlhbFB
+      ZoRA1MV/UfL7dkCpCUcVkGeEQM0Oel3g/nZA6M6YGrhohEC1oyJaDAJ3QJ+uqee2aYRAOfuVdW4F
+      d0CPnkgIimqEQJmqglj+CHdAfRLxcy9rhEBL2rk6swx3QK5HzpKla4RAE/3V+IMQd0Dql6ejZyiF
+      QHnHv6l5zn5AAAAAAAAYhkAAAAAAAHB8QAAAAAAAiIZAAAAAAAAQeUAAAAAAAIiGQAAAAAAAQGxA
+      AAAAAAC4hUAAAAAAAMBXQBcvx74l+oRALtYcjbfBU0DLLMF9sUeEQIOC17X0nWlAvIkZq0FHhEBh
+      0/AdnKVpQFwDvl6iRoRA9FIMPw6taUCYTmsh1UWEQEM8wb04tGlAbtgh7dtEhEA5pkLvCbtpQEFE
+      Rii5Q4RA1h3uBHHBaUAnr7afb0KEQERzuzVex2lAr07jfwJBhEAYkSflwsxpQHtw+0x1P4RALGs6
+      x5HRaUDdJELayz2EQB01TwG/1WlAF/SfQAo8hEAhDk5HQNlpQHveiNQ0OoRAuhQP9QzcaUD2prg+
+      czmEQN6DR0zg3GlAAAAAAACAhEAAAAAAAMBtQA==
+  show_game: false
+  state_size: 8
+  track: !!python/object/apply:shapely.io.from_wkb
+  - !!binary |
+    AQMAAAACAAAAFQAAAAAAAAAAGIRAAAAAAAAATkAAAAAAAIiBQAAAAAAAAEZAAAAAAACQekAAAAAA
+    AABHQAAAAAAAAGdAAAAAAABAVUAAAAAAACBkQAAAAAAAAFtAAAAAAAAAW0AAAAAAAJBwQAAAAAAA
+    gFlAAAAAAACwfEAAAAAAAMBeQAAAAAAAMH5AAAAAAABAaEAAAAAAANB/QAAAAAAA0HRAAAAAAACw
+    f0AAAAAAAFB3QAAAAAAAkHlAAAAAAADgeUAAAAAAAOB1QAAAAAAAYHtAAAAAAABQeEAAAAAAAIB9
+    QAAAAAAASIBAAAAAAABogEAAAAAAAPCAQAAAAAAAGIRAAAAAAADAgEAAAAAAABiGQAAAAAAAcHxA
+    AAAAAACIhkAAAAAAABB5QAAAAAAAiIZAAAAAAABAbEAAAAAAALiFQAAAAAAAwFdAAAAAAAAYhEAA
+    AAAAAABOQBUAAAAAAAAAAICEQAAAAAAAwG1AAAAAAACghEAAAAAAANB1QAAAAAAAEIRAAAAAAABg
+    eEAAAAAAADCCQAAAAAAAwHxAAAAAAABYgEAAAAAAAFB7QAAAAAAAoH5AAAAAAACgckAAAAAAAMB7
+    QAAAAAAAoG9AAAAAAADgdkAAAAAAAFBwQAAAAAAAkHNAAAAAAAAAdUAAAAAAAEByQAAAAAAAwHlA
+    AAAAAAAgcUAAAAAAAPB6QAAAAAAAAG5AAAAAAADgekAAAAAAAKBnQAAAAAAAoHlAAAAAAADgY0AA
+    AAAAANB3QAAAAAAAoGVAAAAAAABQc0AAAAAAAEBrQAAAAAAAQGdAAAAAAADAbkAAAAAAAABkQAAA
+    AAAAoHFAAAAAAAAAZEAAAAAAAJBzQAAAAAAA4GFAAAAAAADog0AAAAAAAGBlQAAAAAAAgIRAAAAA
+    AADAbUA=
+  walls:
+  - - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAC4hUAAAAAAAMBXQAAAAAAAGIRAAAAAAAAATkA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAYhEAAAAAAAABOQAAAAAAAiIFAAAAAAAAARkA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACIgUAAAAAAAABGQAAAAAAAkHpAAAAAAAAAR0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACQekAAAAAAAABHQAAAAAAAAGdAAAAAAABAVUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAAZ0AAAAAAAEBVQAAAAAAAIGRAAAAAAAAAW0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAgZEAAAAAAAABbQAAAAAAAAFtAAAAAAACQcEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAAW0AAAAAAAJBwQAAAAAAAgFlAAAAAAACwfEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACAWUAAAAAAALB8QAAAAAAAwF5AAAAAAAAwfkA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADAXkAAAAAAADB+QAAAAAAAQGhAAAAAAADQf0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABAaEAAAAAAANB/QAAAAAAA0HRAAAAAAACwf0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADQdEAAAAAAALB/QAAAAAAAUHdAAAAAAACQeUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABQd0AAAAAAAJB5QAAAAAAA4HlAAAAAAADgdUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADgeUAAAAAAAOB1QAAAAAAAYHtAAAAAAABQeEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABge0AAAAAAAFB4QAAAAAAAgH1AAAAAAABIgEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACAfUAAAAAAAEiAQAAAAAAAaIBAAAAAAADwgEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABogEAAAAAAAPCAQAAAAAAAGIRAAAAAAADAgEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAYhEAAAAAAAMCAQAAAAAAAGIZAAAAAAABwfEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAYhkAAAAAAAHB8QAAAAAAAiIZAAAAAAAAQeUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACIhkAAAAAAABB5QAAAAAAAiIZAAAAAAABAbEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACIhkAAAAAAAEBsQAAAAAAAuIVAAAAAAADAV0A=
+  - - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADog0AAAAAAAGBlQAAAAAAAgIRAAAAAAADAbUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACAhEAAAAAAAMBtQAAAAAAAoIRAAAAAAADQdUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACghEAAAAAAANB1QAAAAAAAEIRAAAAAAABgeEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAQhEAAAAAAAGB4QAAAAAAAMIJAAAAAAADAfEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAwgkAAAAAAAMB8QAAAAAAAWIBAAAAAAABQe0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABYgEAAAAAAAFB7QAAAAAAAoH5AAAAAAACgckA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACgfkAAAAAAAKByQAAAAAAAwHtAAAAAAACgb0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADAe0AAAAAAAKBvQAAAAAAA4HZAAAAAAABQcEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADgdkAAAAAAAFBwQAAAAAAAkHNAAAAAAAAAdUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACQc0AAAAAAAAB1QAAAAAAAQHJAAAAAAADAeUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABAckAAAAAAAMB5QAAAAAAAIHFAAAAAAADwekA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAgcUAAAAAAAPB6QAAAAAAAAG5AAAAAAADgekA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAAAAbkAAAAAAAOB6QAAAAAAAoGdAAAAAAACgeUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACgZ0AAAAAAAKB5QAAAAAAA4GNAAAAAAADQd0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADgY0AAAAAAANB3QAAAAAAAoGVAAAAAAABQc0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACgZUAAAAAAAFBzQAAAAAAAQGtAAAAAAABAZ0A=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAABAa0AAAAAAAEBnQAAAAAAAwG5AAAAAAAAAZEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAADAbkAAAAAAAABkQAAAAAAAoHFAAAAAAAAAZEA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACgcUAAAAAAAABkQAAAAAAAkHNAAAAAAADgYUA=
+    - !!python/object/apply:shapely.io.from_wkb
+      - !!binary |
+        AQIAAAACAAAAAAAAAACQc0AAAAAAAOBhQAAAAAAA6INAAAAAAABgZUA=
+  width: 800
+eps_end: 0.1
+eps_last_episode: 150
+eps_start: 1.0
+gamma: 0.6772507557673093
+hidden_sizes:
+- 64
+- 16
+loss_fn: !!python/name:torch.nn.functional.smooth_l1_loss ''
+lr: 0.00019082480137197887
+optimizer: !!python/name:torch.optim.adamw.AdamW ''
+samples_per_epoch: 1500
+sync_rate: 10
