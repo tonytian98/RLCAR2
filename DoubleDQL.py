@@ -214,9 +214,13 @@ class DeepQLearning(LightningModule):
 
         # It gets the value of the 'actions' that was taken in 'states' [ [q(ai,si)], [q(aj,sj)], ...  ]
         state_action_value = self.q_net(states).gather(1, actions)
-        next_action_value, _ = self.target_q_net(next_states).max(dim=1, keepdim=True)
-        next_action_value[game_overs] = 0.0  # set the value of terminal states to 0
-        expected_state_action_value = rewards + self.hparams.gamma * next_action_value
+        with torch.no_grad():
+            _, next_actions = self.q_net(next_states).max(dim=1, keepdim=True)
+            next_action_values = self.target_q_net(next_states).gather(1, next_actions)
+            next_action_values[game_overs] = (
+                0.0  # set the value of terminal states to 0
+            )
+        expected_state_action_value = rewards + self.hparams.gamma * next_action_values
         loss = self.hparams.loss_fn(state_action_value, expected_state_action_value)
         self.log("episode/Q-Error", loss)
         self.training_step_outputs.append(loss)
