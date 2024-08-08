@@ -132,13 +132,10 @@ class RecordEnv(ShapelyEnv):
             self.draw_background()
         for i, action in enumerate(actions):
             if "1" in action:
-                self.car.accelerate()
-            elif "2" in action:
-                self.car.decelerate()
-            elif "3" in action:
                 self.car.turn_left()
-            elif "4" in action:
+            elif "2" in action:
                 self.car.turn_right()
+
             elif "SPACE" in action:
                 self.reset()
 

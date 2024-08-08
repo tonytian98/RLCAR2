@@ -69,12 +69,8 @@ class RLEnv(RecordEnv):
         self.current_step = 0
 
         self.LIFE_REWARD = 0
-        self.GOAL_REWARD = 300
-        self.CRASH_REWARD = -1000
-        self.USELESS_ACTION_REWARD = -0.1
-        self.WRONG_DIRECTION_REWARD = -0.1
-        self.ACCELERATE_REWARD = 0.5
-        self.TURN_REWARD = -0.5
+        self.GOAL_REWARD = 1
+        self.CRASH_REWARD = -1
 
     def get_ray_length_avg_std(self) -> tuple[float, float]:
         arr = np.array(self.get_ray_lengths())
@@ -174,16 +170,17 @@ class RLEnv(RecordEnv):
         Returns:
         list: A list containing standardized values representing the current state of the RL environment.
         """
-        car_speed_standardized = self.standardize(
-            self.car.get_car_speed(), self.AVG_CAR_SPEED, self.STD_CAR_SPEED
-        )
 
         angle_difference_standardized = self.standardize(
             self.get_difference_car_angle_target_angle(),
             self.AVG_ANGLE_DIFFERENCE,
             self.STD_ANGLE_DIFFERENCE,
         )
-
+        """
+        car_speed_standardized = self.standardize(
+            self.car.get_car_speed(), self.AVG_CAR_SPEED, self.STD_CAR_SPEED
+        )
+        """
         target_segment_index = (self.current_segmented_track_index + 1) % len(
             self.segmented_track_in_order
         )
@@ -196,7 +193,6 @@ class RLEnv(RecordEnv):
             self.AVG_DISTANCE_TO_NEXT_SEGMENT,
             self.STD_DISTANCE_TO_NEXT_SEGMENT,
         )
-
         ray_lengths_standardized = self.standardize(
             self.get_ray_lengths(), self.AVG_RAY_LENGTH, self.STD_RAY_LENGTH
         )
@@ -204,7 +200,7 @@ class RLEnv(RecordEnv):
 
         return [
             distance_to_next_segment_standardized,
-            car_speed_standardized,
+            # car_speed_standardized,
             angle_difference_standardized,
         ] + ray_lengths_standardized
 
@@ -226,7 +222,7 @@ class RLEnv(RecordEnv):
         self, distance_to_next_segment_standardized: float
     ) -> bool:
         # if reached new segment
-        if distance_to_next_segment_standardized == self.standardize(
+        if distance_to_next_segment_standardized <= self.standardize(
             0, self.AVG_DISTANCE_TO_NEXT_SEGMENT, self.STD_DISTANCE_TO_NEXT_SEGMENT
         ):
             self.current_segmented_track_index = (
@@ -238,12 +234,7 @@ class RLEnv(RecordEnv):
     def step(self, action: int):
         """execute the action in game env and return the new state, reward, terminated, (truncated, info)"""
         reward = 0
-        descriptive_action = self.action_space.descriptive_action_by_action(action)
-        if self.car.get_car_speed() == 0:
-            if descriptive_action != "accelerate":
-                reward += self.USELESS_ACTION_REWARD
 
-        
         self.execute_car_logic(action)
         self.action_record.set_current_value(action)
         self.action_record.add_current_Value_to_record()  # print
@@ -254,17 +245,6 @@ class RLEnv(RecordEnv):
             self.update_game_frame([self.car.get_shapely_point()] + self.rays)
         self.current_step += 1
         new_state = self.get_state()
-        reward -= 0.1 * new_state[0]
-        
-
-        if np.abs(new_state[2]) > self.standardize(
-            90,
-            self.AVG_ANGLE_DIFFERENCE,
-            self.STD_ANGLE_DIFFERENCE,
-        ):
-            reward += self.WRONG_DIRECTION_REWARD
-
-
 
         running = not self.game_end()
         if not running:
